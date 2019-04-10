@@ -9,14 +9,19 @@ import java.security.Principal;
 @RestController
 public class HelloOktaController {
 
-    @GetMapping("/")
-    public String helloWorld(){
-        return "Hello World";
-    }
+//    @GetMapping("/")
+//    public String helloWorld(){
+//        return "Hello World";
+//    }
 
-    @PreAuthorize("#oauth2.hasScope('gaurav.malhotra@nike.com')")
-    @GetMapping("/protected/")
-    public String helloWorldProtected(Principal principal) {
-        return "Hello VIP " + principal.getName();
+//    @PreAuthorize("#oauth2.hasScope('gaurav.malhotra@nike.com')")
+//    @GetMapping("/protected/")
+//    public String helloWorldProtected(Principal principal) {
+//        return "Hello VIP " + principal.getName();
+//    }
+
+    @GetMapping("/hello-oauth")
+    public String sayHello(Principal principal) {
+        return "Hello, " + principal.getName();
     }
 }
